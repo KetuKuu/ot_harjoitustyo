@@ -1,0 +1,7 @@
+.pytest_cache
+src/ui/gui.py
+src/ui/test.py
+src/ui/ui.py
+src/index.py
+src/.pytest_cache
+src/ui/__pycache__
