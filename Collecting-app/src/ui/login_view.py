@@ -1,15 +1,19 @@
 import tkinter as ttk
+#from create_user_view import CreateUserView
+
 
 class LoginView(ttk.Frame):
-    def __init__(self, master, handle_login, handle_create_user_view):
+    def __init__(self, master, handle_create_user_view):
         super().__init__(master)
         self.master = master
-        self.handle_login = handle_login
+        #self.handle_login = handle_login
         self.handle_create_user_view = handle_create_user_view
+        self._frame= None
 
         self.create_widgets()
     
     def create_widgets(self):
+        self._frame = ttk.Frame(master=self.master)
         self.label_username = ttk.Label(self, text="Käyttäjätunnus:")
         self.label_username.pack()
 
@@ -27,10 +31,41 @@ class LoginView(ttk.Frame):
 
         self.button_create_user = ttk.Button(self, text="Luo käyttäjä", command=self.handle_create_user_view)
         self.button_create_user.pack()
+    
+    def pack(self):
+        """"Näyttää näkymän."""
+        self._frame.pack()
+
+    def destroy(self):
+        self._frame.destroy()
+    
 
     def login(self):
         # Tarkista tässä kirjautumistiedot ja siirry eteenpäin, jos kirjautuminen onnistuu
-        self.handle_login()
+        username = self.entry_username.get()
+        password = self.entry_password.get()
+
+        # Tarkistetaan, onko käyttäjätunnus ja salasana oikein (tässä vain esimerkkinä)
+        if username == "kayttaja" and password == "salasana":
+            # Kirjautuminen onnistui, kutsutaan handle_login -funktiota
+            self.handle_login()
+        else:
+            # Kirjautuminen epäonnistui, tulostetaan virheviesti
+            print("Virheellinen käyttäjätunnus tai salasana")
+        
+        #self.handle_login()
+
+class CreateUserView(ttk.Frame):
+    def __init__(self, master, handle_login):
+        super().__init__(master)
+        self.master = master
+        self.handle_login = handle_login
+
+        self.create_widgets()
+
+    def create_widgets(self):
+        # Lisää tarvittavat elementit ja toiminnot käyttäjän luomiseksi
+        pass
 
 class UserView(ttk.Frame):
     def __init__(self, master, handle_logout, handle_add_project, handle_project_summary):
@@ -52,30 +87,37 @@ class UserView(ttk.Frame):
         self.button_project_summary = ttk.Button(self, text="Projektin tilanne", command=self.handle_project_summary)
         self.button_project_summary.pack()
 
+
+
+
 def main():
     root = ttk.Tk()
     root.title("Käyttäjän kirjautuminen")
     root.geometry("300x200")
+    currentview= None
+    
+    #handle_login()
 
-    def handle_login():
+    """def handle_login():
+        
+        destroycurrentview()
+        currentview = LoginView(root, handle_login, handle_create_user_view)
+        currentview.pack()
         print("Kirjautuminen")
 
+    def destroycurrentview():
+        if currentview != None: 
+            currentview.destroy() """
+
     def handle_create_user_view():
+        
+        #destroycurrentview()
+        #currentview = CreateUserView(root, handle_login)
+        #currentview.pack()
         print("Käyttäjän luominen")
 
-    def handle_logout():
-        print("Uloskirjautuminen")
-
-    def handle_add_project():
-        print("Projektin lisääminen")
-
-    def handle_project_summary():
-        print("Projektin tilanne")
-
-    login_view = LoginView(root, handle_login, handle_create_user_view)
+    login_view = LoginView(root, handle_create_user_view)
     login_view.pack()
-
-    user_view = UserView(root, handle_logout, handle_add_project, handle_project_summary)
 
     root.mainloop()
 
