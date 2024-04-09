@@ -43,12 +43,12 @@ class CreateUserView(ttk.Frame):
             # Jos käyttäjätunnus tai salasana puuttuu, näytetään virheviesti
             print("Syötä käyttäjätunnus ja salasana")
 
-    def pack(self):
+    #def pack(self):
         """"Näyttää näkymän."""
-        self._frame.pack()
+        #self._frame.pack()
 
-    def destroy(self):
-        self._frame.destroy()
+    #def destroy(self):
+        #self._frame.destroy()
 
         
 def main():

@@ -42,7 +42,6 @@ def main():
 
     user_view = UserView(root, handle_logout, handle_add_project, handle_project_summary)
     user_view.pack(expand=True, fill="both")
-
     root.mainloop()
 
 if __name__ == "__main__":
