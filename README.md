@@ -6,12 +6,13 @@ Sovellukseen voi kirjautua ja käyttäjä voi lisätä, muokata, seurata ja pois
 
 
 # Asennus
-Siirry ensin Collecting-app kansioon
-1.Asenna riippuvuudet komennolla:
+1.Siirry ensin Collecting-app kansioon
+
+2.Asenna riippuvuudet komennolla:
 poetry install
 
 
-2.Käynnistä sovellus komennolla:
+3.Käynnistä sovellus komennolla:
 
 poetry run invoke start
 
