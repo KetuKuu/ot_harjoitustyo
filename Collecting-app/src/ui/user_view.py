@@ -9,8 +9,8 @@ class UserView:
         self._handle_add_project = handle_add_project
         self._handle_project_summary = handle_project_summary
 
-
         self._frame = None
+        self._entry = None
         self.initialize()
 
 
@@ -29,13 +29,13 @@ class UserView:
         if self._frame is None:
             self._frame = ttk.Frame(master=self._root)
 
-            self.button_logout = ttk.Button(self, text="Kirjaudu ulos", command=self._handle_logout)
+            self.button_logout = ttk.Button(self._frame, text="Kirjaudu ulos", command=self._handle_logout)
             self.button_logout.pack()
 
-            self.button_add_project = ttk.Button(self, text="Lisää projekti", command=self._handle_add_project)
+            self.button_add_project = ttk.Button(self._frame, text="Lisää projekti", command=self._handle_add_project)
             self.button_add_project.pack()
 
-            self.button_project_summary = ttk.Button(self, text="Projektin tilanne", command=self._handle_project_summary)
+            self.button_project_summary = ttk.Button(self._frame, text="Projektin tilanne", command=self._handle_project_summary)
             self.button_project_summary.pack()
 
         # Pakkaa komponentit kehykseen
