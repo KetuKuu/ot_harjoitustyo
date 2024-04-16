@@ -22,7 +22,8 @@ poetry run invoke start
 
 [Työaikakirjanpito](Collecting-app/Dokumentaatio/tuntikirjanpito.md)
 
-# HUOM!
-Sovellus on vielä keskeneräinen. Sovelluksen käynnistäessä avautuu sisäänkirjautumissivu. 
-Sivujen välillä navigointi ei toimi vielä ja käyttöliittymä Kaipaa vielä kehitystä. 
-Login-näkymästä vastaavat login_view.py ja user_view.py(src/ui-hakemistössä) tuottavat myös käyttäjänäkymän.
+[Changelog](Collecting-app/Dokumentaatio/changelog.md)
+
+# Komentorivitoiminnot
+
+Testaus ei toimi
