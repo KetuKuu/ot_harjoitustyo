@@ -1,92 +1,79 @@
-import tkinter as ttk
-#from create_user_view import CreateUserView
+from tkinter import ttk, constants, StringVar
+#from ui.create_user_view import CreateUserView
+from services.user_service import user_service, InvalidCredentialsError
 
 
-class LoginView(ttk.Frame):
-    def __init__(self, master, handle_login, handle_create_user_view):
-        super().__init__(master)
-        self.master = master
-        self.handle_login = handle_login
-        self.handle_create_user_view = handle_create_user_view
-        self._frame= None
+class LoginView:
+    def __init__(self, root, handle_login, handle_show_create_user_view):
+        print(" LoginView __init__() method")
+        self._handle_show_create_user_view = handle_show_create_user_view
+        self._handle_login = handle_login
 
-        self.create_widgets()
+        self._root = root
+        self._frame = None
+        self._username_entry = None
+        self._password_entry = None
+        self._error_variable = None
+        self._error_label = None
+
+        self.initialize()
     
-    def create_widgets(self):
-        self._frame = ttk.Frame(master=self.master)
-        self.label_username = ttk.Label(self, text="Käyttäjätunnus:")
-        self.label_username.pack()
+    def pack(self):
+        self._frame.pack(fill=constants.X)
 
-        self.entry_username = ttk.Entry(self)
-        self.entry_username.pack()
-
-        self.label_password = ttk.Label(self, text="Salasana:")
-        self.label_password.pack()
-
-        self.entry_password = ttk.Entry(self, show="*")
-        self.entry_password.pack()
-
-        self.button_login = ttk.Button(self, text="Kirjaudu", command=self.login)
-        self.button_login.pack()
-
-        self.button_create_user = ttk.Button(self, text="Luo käyttäjä", command=self.handle_create_user_view)
-        self.button_create_user.pack()
-    
-    #def pack(self):
-        """"Näyttää näkymän."""
-        #self._frame.pack()
-
-    #def destroy(self):
-        #self._frame.destroy()
     
 
-    def login(self):
-        # Tarkista tässä kirjautumistiedot ja siirry eteenpäin, jos kirjautuminen onnistuu
-        username = self.entry_username.get()
-        password = self.entry_password.get()
+    def destroy(self):
+        self._frame.destroy()
 
-        # Tarkistetaan, onko käyttäjätunnus ja salasana oikein (tässä vain esimerkkinä)
-        if username == "kayttaja" and password == "salasana":
-            # Kirjautuminen onnistui, kutsutaan handle_login -funktiota
-            self.handle_login()
-        else:
-    
-            print("Virheellinen käyttäjätunnus tai salasana")
+    def _handle_login(self):
+        # Tässä voit lisätä kirjautumistoiminnallisuuden
+        username = self._username_entry.get()
+        password = self._password_entry.get()
+        print("Kirjaudu:", username, password)
         
-        #self.handle_login()
+        try:
+            user_service.login (username, password)
+            self._handle_login()
+        except InvalidCredentialsError:
+            self._show_error("Invalid username or password")
+
+    def _show_error(self, message):
+        self._error_variable.set(message)
+        self._error_label.grid()
+
+    def _hide_error(self):
+        self._error_label.grid_remove()
+
+    def _handle_register(self):
+        print("Luo käyttäjätunnus")
 
 
+    def initialize(self):
+        #print("Tervetuloa käyttäjänäkymään!")
 
+        #welcome_label = ttk.Label(master=self._root, text="Tervetuloa Nokiin!")
+        #welcome_label.pack()
+        if self._frame is None:
+            self._frame = ttk.Frame(master=self._root)
 
-def main():
-    root = ttk.Tk()
-    root.title("Käyttäjän kirjautuminen")
-    root.geometry("300x200")
-    currentview= None
+            self._username_label = ttk.Label(master=self._frame, text="Käyttäjätunnus:")
+            self._username_entry = ttk.Entry(master=self._frame)
 
+            self._password_label = ttk.Label(master=self._frame, text="Salasana:")
+            self._password_entry = ttk.Entry(master=self._frame, show="*")
 
-    def handle_login():
-        
-        destroycurrentview()
-        currentview = LoginView(root, handle_login, handle_create_user_view)
-        currentview.pack()
-        print("Kirjautuminen")
+            self._login_button = ttk.Button(master=self._frame, text="Kirjaudu", command=self._handle_login)
+            self._register_button = ttk.Button(master=self._frame, text="Luo käyttäjätunnus", command=self._handle_show_create_user_view)
+            
+        # Pakkaa komponentit kehykseen
+            self._username_label.grid(row=0, column=0, sticky=constants.E)
+            self._username_entry.grid(row=0, column=1, sticky=constants.W)
 
-    def destroycurrentview():
-        if currentview != None: 
-            currentview.destroy()
+            self._password_label.grid(row=1, column=0, sticky=constants.E)
+            self._password_entry.grid(row=1, column=1, sticky=constants.W)
 
-    def handle_create_user_view():
-        
-        destroycurrentview()
-        currentview = LoginView(root, handle_login, handle_create_user_view)
-        currentview.pack()
-        print("Käyttäjän luominen")
+            self._login_button.grid(row=2, column=0, columnspan=2, pady=10)
+            self._register_button.grid(row=3, column=0, columnspan=2)
 
-    login_view = LoginView(root, handle_login, handle_create_user_view)
-    login_view.pack()
-
-    root.mainloop()
-
-if __name__ == "__main__":
-    main()
+            self._frame.pack()

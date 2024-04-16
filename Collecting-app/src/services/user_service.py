@@ -29,8 +29,16 @@ class UserService:
     def logout(self):
         self._user =None
 
+    def _validate_username(self, username):
+        return len(username) >= 4
+
+    def _validate_password(self, password):
+        return len(password) >= 4 
+
     def delete_user(self, user):
         user:id = user.get_user_id()
+
+    
 
 
 user_service = UserService(user_repository)

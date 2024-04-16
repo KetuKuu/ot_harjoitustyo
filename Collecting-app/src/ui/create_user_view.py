@@ -1,74 +1,63 @@
 import tkinter as ttk
-from user_view import UserView
+from tkinter import ttk, StringVar, constants
+from services.user_service import user_service, UsernameExistsError
 
 
-class CreateUserView(ttk.Frame):
-    def __init__(self, master, handle_create_user, handle_cancel):
-        super().__init__(master)
-        self.master = master
-        self.handle_create_user = handle_create_user
-        self.handle_cancel = handle_cancel
+class CreateUserView:
+    def __init__(self, root, handle_create_user, handle_cancel):
+        print("CreateUserView __init__() method")
+        self.root = root
+        self._handle_create_user = handle_create_user
+        self._handle_cancel = handle_cancel
 
-        self.create_widgets()
+        self._root = root
+        self._frame = None
+        self._username_entry = None
+        self._password_entry = None
+
+        self.initialize()
     
-    def create_widgets(self):
-        self.label_username = ttk.Label(self, text="Uusi käyttäjätunnus:")
-        self.label_username.pack()
+    def pack(self):
+        self._frame.pack(fill='both', expand=True)
 
-        self.entry_username = ttk.Entry(self)
-        self.entry_username.pack()
+    def destroy(self):
+        self._frame.destroy()
 
-        self.label_password = ttk.Label(self, text="Uusi salasana:")
-        self.label_password.pack()
 
-        self.entry_password = ttk.Entry(self, show="*")
-        self.entry_password.pack()
-
-        self.button_create_user = ttk.Button(self, text="Luo käyttäjä", command=self.create_user)
-        self.button_create_user.pack()
-
-        self.button_cancel = ttk.Button(self, text="Peruuta", command=self.handle_cancel)
-        self.button_cancel.pack()
-
-    def create_user(self):
+    def _handle_create_user(self):
         # Haetaan syötetyt käyttäjätunnus ja salasana
-        username = self.entry_username.get()
-        password = self.entry_password.get()
+        username = self._username_entry.get()
+        password = self._password_entry.get()
 
         # Tarkistetaan, että käyttäjätunnus ja salasana ovat kelvollisia (voit lisätä oman tarkistuslogiikkasi tähän)
         if username and password:
             # Kutsutaan handle_create_user -funktiota ja välitetään sille luodut käyttäjätunnus ja salasana
-            self.handle_create_user(username, password)
+            self._handle_create_user(username, password)
         else:
             # Jos käyttäjätunnus tai salasana puuttuu, näytetään virheviesti
             print("Syötä käyttäjätunnus ja salasana")
 
-    #def pack(self):
-        """"Näyttää näkymän."""
-        #self._frame.pack()
+    
+    def initialize(self):
+        if self._frame is None:
+            self._frame = ttk.Frame(master=self._root)
 
-    #def destroy(self):
-        #self._frame.destroy()
+            self._username_label = ttk.Label(master=self._frame, text="Uusi käyttäjätunnus:")
+            self._username_label.grid(row=0, column=0, sticky='e')
 
-        
-def main():
-    root = ttk.Tk()
-    root.title("Käyttäjän luominen")
-    root.geometry("300x200")
+            self._username_entry = ttk.Entry(master=self._frame)
+            self._username_entry.grid(row=0, column=1, sticky='w')
 
-    def handle_create_user(username, password):
-        print(f"Luodaan käyttäjä: {username}, salasana: {password}")
-        create_user_view.destroy()  # Tuhotaan CreateUserView-näkymä
-        user_view = UserView(root)
-        user_view.pack()
+            self._password_label = ttk.Label(master=self._frame, text="Uusi salasana:")
+            self._password_label.grid(row=1, column=0, sticky='e')
 
-    def handle_cancel():
-        print("Käyttäjän luominen peruttu")
+            self._password_entry = ttk.Entry(master=self._frame, show='*')
+            self._password_entry.grid(row=1, column=1, sticky='w')
 
-    create_user_view = CreateUserView(root, handle_create_user, handle_cancel)
-    create_user_view.pack()
+            self._create_button = ttk.Button(master=self._frame, text="Luo käyttäjä", command=self._handle_create_user)
+            self._create_button.grid(row=2, column=0, columnspan=2, pady=10)
 
-    root.mainloop()
+            self._cancel_button = ttk.Button(master=self._frame, text="Peruuta", command=self._handle_cancel)
+            self._cancel_button.grid(row=3, column=0, columnspan=2)
 
-if __name__ == "__main__":
-    main()
+            self._frame.pack()

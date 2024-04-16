@@ -12,10 +12,9 @@
 ## Viikko 4
 
 
-1. Sovelluksen koodi on uusittu vastaamaan kerrosarkkitehtuurin periaatteita(lisätty, index,py, ui,py, ui, repositories,entities, service.
+1. Sovelluksen koodi on uusittu vastaamaan kerrosarkkitehtuurin periaatteita (lisätty, index,py, ui,py, ui, repositories,entities, service).
 2. Lisätty UserRepository-luokka, UserService-luoka, User-luokka ja pilkottu LoginView-, CreateUserView-, UserView Pilkottu itsenäisiin tietostoihin.
 3.  Käyttäjän pitäisi pystyä kirjautumaan sisään ja ulos.
 4. Käyttäjä näkee kirjautumisen jälkeen käyttäjäsivun.
-- Testattu, että TodoRepository-luokka merkitsee tehtävät tehdyksi ja TodoService-luokka palauttaa tekemättömät tehtävät
 
 

@@ -1,13 +1,16 @@
 from tkinter import Tk
-from ui.login_view_copy import LoginView
+from ui.ui import UI
+#from ui.create_user_view import CreateUserView
+
+
 
 
 def main():
     window = Tk()
-    window.title("Noki")
+    window.title("Nokia")
 
-    ui_view = LoginView(window)
-    ui_view.create_widgets()
+    ui_view = UI(window)
+    ui_view.start()
 
     window.mainloop()
 
