@@ -25,6 +25,10 @@ poetry run invoke start
 
 [Changelog](Collecting-app/Dokumentaatio/changelog.md)
 
+[Käyttöohjeet](Collecting-app/Dokumentaatio/kayttoohje.md)
+
+kayttoohje.md
+
 # Komentorivitoiminnot
 
 Testaus ei toimi
