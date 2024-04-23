@@ -27,6 +27,9 @@ poetry run invoke start
 
 [Käyttöohjeet](Collecting-app/Dokumentaatio/kayttoohje.md)
 
+[Arkkitehtuuri](Collecting-app/Dokumentaatio/arkkitehtuuri.md)
+
+
 
 # Komentorivitoiminnot
 
