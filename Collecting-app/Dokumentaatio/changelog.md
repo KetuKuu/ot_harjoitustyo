@@ -17,4 +17,13 @@
 3.  Käyttäjän pitäisi pystyä kirjautumaan sisään ja ulos.
 4. Käyttäjä näkee kirjautumisen jälkeen käyttäjäsivun.
 
+## Viikko 5
+
+
+1. Tietokanta ei toimi.
+2. Lisätty AddView-luokka. Back-näppäin ei toimi, joten sivulta ei pääse takaisin muuten kuin sulkemalla koko sivun.
+3. Käyttäjä voi vaihtaa ohjelman sivujen välillä kunnes siirryt sivulle Lisää projekti.
+4. CSV-tiedoston lataamisen perustoiminnallisuus toimii. Tiedostoa itse ei voi vielä ladata."
+5. Ohjelman toiminnallisuudessa on vielä paljon puutteita
+
 
