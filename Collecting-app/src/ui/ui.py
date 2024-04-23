@@ -1,7 +1,7 @@
 from ui.login_view import LoginView
 from ui.create_user_view import CreateUserView
 from ui.user_view import UserView
-#from ui.add_view import AddView
+from ui.add_view import AddView
 #from ui.project_view import ProjectView
 
 class UI:
@@ -62,7 +62,7 @@ class UI:
         self._current_view=AddView(
             self._root,
             self._show_user_view, 
-            self._show_project_view 
+         
             )
         self._current_view.pack()
 

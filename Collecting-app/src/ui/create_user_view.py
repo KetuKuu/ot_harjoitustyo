@@ -25,16 +25,14 @@ class CreateUserView:
 
 
     def _handle_create_user(self):
-        # Haetaan syötetyt käyttäjätunnus ja salasana
+
         username = self._username_entry.get()
         password = self._password_entry.get()
 
-        # Tarkistetaan, että käyttäjätunnus ja salasana ovat kelvollisia (voit lisätä oman tarkistuslogiikkasi tähän)
-        if username and password:
-            # Kutsutaan handle_create_user -funktiota ja välitetään sille luodut käyttäjätunnus ja salasana
-            self._handle_create_user(username, password)
+        if username and password :
+            user_service.login(username, password)
         else:
-            # Jos käyttäjätunnus tai salasana puuttuu, näytetään virheviesti
+         
             print("Syötä käyttäjätunnus ja salasana")
 
     

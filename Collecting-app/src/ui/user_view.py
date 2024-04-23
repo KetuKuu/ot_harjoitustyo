@@ -1,3 +1,4 @@
+import csv
 from tkinter import ttk, constants
 from services.user_service import user_service
 
@@ -8,19 +9,25 @@ class UserView:
         self._handle_logout = handle_logout
         self._handle_add_project = handle_add_project
         self._handle_project_summary = handle_project_summary
+       
 
         self._frame = None
         self._entry = None
         self.initialize()
 
-
-
-
     def pack(self):
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
-        self._frame.destroy()    
+        self._frame.destroy()  
+
+
+    def _logout_handler(self):
+        user_service.logout(self.user)
+        self._handle_logout()
+
+    def  _add_handler(self, user):
+            self._handle_add_project(user) 
 
 
     def initialize(self):
