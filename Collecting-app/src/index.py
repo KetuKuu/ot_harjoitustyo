@@ -1,11 +1,15 @@
 from tkinter import Tk
 from ui.ui import UI
-#from ui.create_user_view import CreateUserView
+from initialize_database import initialize_database
+from repositories.user_repository import user_repository
 
 
 
 
 def main():
+
+   
+    initialize_database()
     window = Tk()
     window.title("Nokia")
 
