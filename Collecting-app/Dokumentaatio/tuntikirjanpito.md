@@ -14,4 +14,5 @@
 | 2024-04-18 | 8 tuntia|SQL-tietokannan luomine,repositori database_connection ja initialize_database|
 | 2024-04-19 | 7 tuntia|Tietokanta ei toimi. Näkymän Add_view luominen ja riippuvuus.Tkinter filedialog tutustuminen |
 | 2024-04-23 | 5 tuntia|luokan Add_view toiminnallisuus|
-| yht   | 63   | | 
+| 2024-04-25 | 7 tuntia|tietikanta toimii, korjattu moduli database_connection.py,initialize_database.py| 
+| yht   | 70   | | 
