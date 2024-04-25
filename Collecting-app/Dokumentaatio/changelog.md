@@ -26,4 +26,8 @@
 4. CSV-tiedoston lataamisen perustoiminnallisuus toimii. Tiedostoa itse ei voi vielä ladata."
 5. Ohjelman toiminnallisuudessa on vielä paljon puutteita
 
+## Viikko 6
+1. Tietokanta toimii.
+2.
+
 
