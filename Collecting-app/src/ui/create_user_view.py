@@ -30,13 +30,12 @@ class CreateUserView:
 
         if username and password:
             try:
-                user_service.create_user(username, password)
+                user = user_service.create_user(username, password)  # Luodaan käyttäjä
                 print("_register_user, Kirjauduminen onnistui")
-                self._handle_show_user_view()  # Siirry käyttäjänäkymään onnistuneen rekisteröinnin jälkeen
+                self._handle_show_user_view(user)  # Siirry käyttäjänäkymään onnistuneen rekisteröinnin jälkeen
             except UsernameExistsError:
                 self._error_variable.set("Käyttäjätunnus on jo käytössä")
-                # Tässä vaiheessa ei siirrytä mihinkään, vain näytetään virhe
-            print("_register_user,käyttäjätunnus käytössä")
+                print("_register_user, käyttäjätunnus käytössä")
         else:
             self._error_variable.set("Syötä käyttäjätunnus ja salasana")
 

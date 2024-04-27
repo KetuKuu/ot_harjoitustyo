@@ -33,16 +33,10 @@ class UserRepository:
         cursor.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
         row = cursor.fetchone()
         if row:
-            return User(row[1], row[2])
+            return User(row["username"], row["password"])
         else:
-            return None
+            return None 
 
-
-        # Tällä hetkellä kovakoodataan käyttäjätunnus ja salasana
-        #if username == "testi" and password == "testi":
-            #return User(username, password)
-        #else:
-            #return None
 
     def remove_user(self, user_id):
 

@@ -1,5 +1,5 @@
 from tkinter import ttk, constants, StringVar, filedialog, messagebox
-from entities.user import User
+#from entities.user import User
 
 class AddView:
     def __init__(self, root, handle_add_phone):

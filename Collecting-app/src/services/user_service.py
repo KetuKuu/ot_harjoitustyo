@@ -37,7 +37,7 @@ class UserService:
     def login(self, username, password):
         print(" Userservice Login() method")
       
-        user =self.user_repository.find_by_username(username)
+        user =self.user_repository.find_by_username(username, password)
         if not user or user.password != password:
             raise InvalidCredentialsError("Invalid username or password")
         

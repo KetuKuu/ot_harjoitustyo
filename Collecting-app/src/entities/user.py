@@ -6,7 +6,7 @@ class User:
         self.username = username
         self.password = password
         #self.email = email
-
+        print("User")
     def change_password(self, new_password):
         self.password = new_password
 
