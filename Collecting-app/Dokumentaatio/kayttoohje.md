@@ -23,7 +23,7 @@ Käynnistä ohjelma. Voit valita suoran "Kirjautu" ja pääset käyttäjänäkym
 
 ## Uudenkäyttäjän luominen
 
-Voit vierailla 'Luo käyttäjätunnus' -sivulla ja pääset takaisin napista "Peruuta". "Luo käyttäjätunnus" -toiminto ei ole toistaiseksi vielä käytössä.
+Valitse "Luo Käyttäjätunns". Anna haluamasi käyttäjätunnus. Valitse "Kirjaudu".
 
 ![Luo Käyttäjätunnus](kuvat/new user.png)
 
