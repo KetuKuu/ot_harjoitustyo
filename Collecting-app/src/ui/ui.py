@@ -2,7 +2,7 @@ from ui.login_view import LoginView
 from ui.create_user_view import CreateUserView
 from ui.user_view import UserView
 from ui.add_view import AddView
-#from ui.project_view import ProjectView
+from ui.project_view import ProjectView
 
 class UI:
     #Sovelluksen käyttöliittymästä vastaava luokka
@@ -38,7 +38,7 @@ class UI:
 
         self._current_view = CreateUserView(
             self._root,
-            self._show_project_view,
+            self._show_user_view,
             self._show_login_view
         )
 
@@ -69,8 +69,8 @@ class UI:
 
     def _show_project_view(self):
         self._hide_current_view()
-
-        self._current_view= UserView(
+        print(" projekt_view")
+        self._current_view= ProjectView(
             self._root,
             self._show_login_view, 
             self._show_add_view
