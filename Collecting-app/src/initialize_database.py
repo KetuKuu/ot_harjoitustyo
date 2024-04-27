@@ -1,15 +1,19 @@
 from database_connection import get_database_connection
+import os
 
 
 
 
 def drop_tables(connection):
+    print("initialize, Dropping tables...")
     cursor = connection.cursor()
     cursor.execute('DROP TABLE IF EXISTS users;')
     connection.commit()
+    print("Tables dropped.")
 
 
 def create_tables(connection):
+    print("initialize database,create_tables")
     cursor = connection.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS users (
@@ -26,7 +30,8 @@ def initialize_database():
 
     connection = get_database_connection()
 
-    drop_tables(connection)
+    if os.getenv('DROP_TABLES', 'False') == 'True':
+        drop_tables(connection)
     create_tables(connection)
 
 
