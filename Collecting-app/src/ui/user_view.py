@@ -1,6 +1,6 @@
 import csv
 from tkinter import ttk, constants
-from services.user_service import user_service
+#from services.user_service import user_service
 
 class UserView:
     def __init__(self, root, handle_logout, handle_add_project, handle_project_summary):
