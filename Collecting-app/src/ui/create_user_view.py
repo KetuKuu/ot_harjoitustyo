@@ -4,16 +4,16 @@ from services.user_service import user_service, UsernameExistsError
 
 
 class CreateUserView:
-    def __init__(self, root, handle_create_user, handle_cancel):
+    def __init__(self, root, handle_show_user_view, handle_show_login_view):
         print("CreateUserView __init__() method")
-        self.root = root
-        self._handle_create_user = handle_create_user
-        self._handle_cancel = handle_cancel
-
         self._root = root
+        self._handle_show_user_view = handle_show_user_view
+        self._handle_show_login_view = handle_show_login_view
+        
         self._frame = None
         self._username_entry = None
         self._password_entry = None
+        self._error_variable = StringVar()
 
         self.initialize()
     
@@ -24,16 +24,21 @@ class CreateUserView:
         self._frame.destroy()
 
 
-    def _handle_create_user(self):
-
+    def _register_user(self):
         username = self._username_entry.get()
         password = self._password_entry.get()
 
-        if username and password :
-            user_service.login(username, password)
+        if username and password:
+            try:
+                user_service.create_user(username, password)
+                print("_register_user, Kirjauduminen onnistui")
+                self._handle_show_user_view()  # Siirry käyttäjänäkymään onnistuneen rekisteröinnin jälkeen
+            except UsernameExistsError:
+                self._error_variable.set("Käyttäjätunnus on jo käytössä")
+                # Tässä vaiheessa ei siirrytä mihinkään, vain näytetään virhe
+            print("_register_user,käyttäjätunnus käytössä")
         else:
-         
-            print("Syötä käyttäjätunnus ja salasana")
+            self._error_variable.set("Syötä käyttäjätunnus ja salasana")
 
     
     def initialize(self):
@@ -52,10 +57,19 @@ class CreateUserView:
             self._password_entry = ttk.Entry(master=self._frame, show='*')
             self._password_entry.grid(row=1, column=1, sticky='w')
 
-            self._create_button = ttk.Button(master=self._frame, text="Luo käyttäjä", command=self._handle_create_user)
+            self._password_label = ttk.Label(master=self._frame, text="Uusi salasana:")
+            self._password_label.grid(row=1, column=0, sticky='e')
+
+            self._password_entry = ttk.Entry(master=self._frame, show='*')
+            self._password_entry.grid(row=1, column=1, sticky='w')
+
+            self._create_button = ttk.Button(master=self._frame, text="Luo käyttäjä", command=self._register_user)
             self._create_button.grid(row=2, column=0, columnspan=2, pady=10)
 
-            self._cancel_button = ttk.Button(master=self._frame, text="Peruuta", command=self._handle_cancel)
+            self._cancel_button = ttk.Button(master=self._frame, text="Peruuta", command=self._handle_show_login_view)
             self._cancel_button.grid(row=3, column=0, columnspan=2)
+
+            self._error_label = ttk.Label(master=self._frame, textvariable=self._error_variable, foreground="red")
+            self._error_label.grid(row=4, column=0, columnspan=2)  
 
             self._frame.pack()
