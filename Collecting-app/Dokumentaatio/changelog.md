@@ -28,6 +28,6 @@
 
 ## Viikko 6
 1. Tietokanta toimii.
-2.
+2.Korjattu drop_tables-metodia joka pudoti tiedokantataulut automaattisesti ohjelman käynnistyessä. Lisätty user_service.py moduliin käyttäjätunnuksen ja salasanan validointi ja korjattu metodi find_by_username(self, username):
 
 
