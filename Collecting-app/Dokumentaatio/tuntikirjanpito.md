@@ -15,4 +15,5 @@
 | 2024-04-19 | 7 tuntia|Tietokanta ei toimi. Näkymän Add_view luominen ja riippuvuus.Tkinter filedialog tutustuminen |
 | 2024-04-23 | 5 tuntia|luokan Add_view toiminnallisuus|
 | 2024-04-25 | 7 tuntia|tietikanta toimii, korjattu moduli database_connection.py,initialize_database.py| 
-| yht   | 70   | | 
+| 2024-04-26 | 3 tuntia|Luokka CreateUserView korjaus ja ui.py käyttäjä ohjataaminen oikeseen näkymään| 
+| yht   | 73   | | 
