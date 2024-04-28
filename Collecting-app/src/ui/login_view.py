@@ -31,13 +31,13 @@ class LoginView:
 
         username = self._username_entry.get()
         password = self._password_entry.get()
-        print("Kirjaudu:", username, password)
+        print("Kirjaudu:", username)
         
         try:
             user = user_service.login(username, password)
             print("Login successful")
-            #self._handle_login(user)
-            self._handle_show_user_view(user) 
+            self._handle_login(user)
+          
         except InvalidCredentialsError:
             self._show_error("Invalid username or password")
 
