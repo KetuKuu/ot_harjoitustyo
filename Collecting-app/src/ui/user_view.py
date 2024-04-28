@@ -6,10 +6,10 @@ class UserView:
     def __init__(self, root,user, handle_logout, handle_add_project, handle_project_summary):
         print(" UserView __init__() method")
         self._root = root
-        self.user =user
         self._handle_logout = handle_logout
         self._handle_add_project = handle_add_project
         self._handle_project_summary = handle_project_summary
+        self.user =user
        
 
         self._frame = None
@@ -27,8 +27,8 @@ class UserView:
         
         self._handle_logout()
 
-    def  _add_handler(self, user):
-            self._handle_add_project(user) 
+    def  _add_handler(self):
+            self._handle_add_project() 
 
 
     def initialize(self):
