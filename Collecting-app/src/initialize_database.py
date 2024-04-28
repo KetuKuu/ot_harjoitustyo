@@ -25,6 +25,22 @@ def create_tables(connection):
     print("taulu luotu")
     connection.commit()
 
+def create_phone_table(connection):
+    cursor = connection.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS phones (
+            id INTEGER PRIMARY KEY,
+            image TEXT,
+            series TEXT,
+            model_year INTEGER,
+            price DECIMAL
+        );
+    ''')
+    print("Phone table created")
+    connection.commit()
+
+
+
 def initialize_database():
     
 
@@ -33,7 +49,7 @@ def initialize_database():
     if os.getenv('DROP_TABLES', 'False') == 'True':
         drop_tables(connection)
     create_tables(connection)
-
+    create_phone_table(connection)
 
 if __name__ == "__main__":
     initialize_database()
