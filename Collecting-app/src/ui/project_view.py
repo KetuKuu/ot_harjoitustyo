@@ -15,6 +15,16 @@ class ProjectView:
     def destroy(self):
         self._frame.destroy()
 
+    def update_list(self):
+        self._listbox.delete(0, constants.END)  # Poista vanhat arvot
+        # Haetaan uudet tiedot tietokannasta tai sovelluksen tilasta
+        updated_data = fetch_phone_data()  # Tämä on esimerkki funktiosta, joka haetaan tietokannasta
+        for item in updated_data:
+            self._listbox.insert(constants.END, item)
+
+
+
+
     def initialize(self):
         self._frame = ttk.Frame(master=self._root)
 
@@ -27,7 +37,7 @@ class ProjectView:
         self._listbox.pack(fill=constants.BOTH, expand=True)
         
         # Populate the listbox with sample data (This should be dynamic based on actual data)
-        sample_data = ["Nokia 3310 - 2000 - $50", "Nokia 1100 - 2003 - $30"]
+        sample_data = ["Nokia 3310 - 2000 - 50", "Nokia 1100 - 2003 - 30"]
         for item in sample_data:
             self._listbox.insert(constants.END, item)
 
