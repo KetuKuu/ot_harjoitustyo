@@ -17,6 +17,7 @@ class UserService:
     def __init__(self, user_repository):
         print(" UserService __init__() method")
         self.user_repository = user_repository
+        self.current_user = None
 
 
     def create_user(self, username: str, password: str):
@@ -37,24 +38,30 @@ class UserService:
     def login(self, username, password):
         print(" Userservice Login() method")
       
-        user =self.user_repository.find_by_username(username, password)
-        if not user or user.password != password:
-            raise InvalidCredentialsError("Invalid username or password")
-        
-        self._user = user
+        user = self.user_repository.find_user(username, password)
+        if user and user.password == password:
+            self.current_user = user
+            return user
+        raise InvalidCredentialsError("Invalid username or password")
 
-        return user
-    #todo create user
     
+    def get_current_user(self):
+        return self.current_user
+
 
     def logout(self):
-        self._user =None
+        self.current_user =None
+        print("logout")
+
+    
 
     def _validate_username(self, username):
         return len(username) >= 4
 
     def _validate_password(self, password):
         return len(password) >= 4 
+    
+
 
     def delete_user(self, user):
         user:id = user.get_user_id()
