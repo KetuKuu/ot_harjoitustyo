@@ -16,4 +16,6 @@
 | 2024-04-23 | 5 tuntia|luokan Add_view toiminnallisuus|
 | 2024-04-25 | 7 tuntia|tietikanta toimii, korjattu moduli database_connection.py,initialize_database.py| 
 | 2024-04-26 | 3 tuntia|Luokka CreateUserView korjaus ja ui.py käyttäjä ohjataaminen oikeseen näkymään| 
-| yht   | 73   | | 
+| 2024-04-27 | 5 tuntia|Lisätty user-olio UserView-luokkaan, tulos missing required  'user', käyttäjätunnuksen luominen toimii, sisäänkirjautuminen antaa virheen. yritin korjatta| 
+| 2024-04-28 | 10 tuntia|UserView-kutsun parametrit on laitettu oikeaan järjestykseen. Virheilmoitus pysyy samana, mikäli yrittää kirjautua. "Lisätty tietokanta phones ja moduulit collecting_repository.py, add_view.py ja project_view.py."| 
+| yht   | 88   | | 
