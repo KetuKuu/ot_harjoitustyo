@@ -24,8 +24,6 @@ class UI:
     
     def _show_login_view(self):
         self._hide_current_view()
-        print("_show_login_view method")
-
 
         self._current_view=LoginView(
             self._root,
@@ -33,6 +31,7 @@ class UI:
             self._show_create_user_view
             )
         print("_show_login_view method")
+
         self._current_view.pack()
 
     def _show_create_user_view(self):
@@ -54,10 +53,11 @@ class UI:
 
         self._current_view=UserView(
             self._root,
+            user,
             self._show_login_view, 
             self._show_add_view,
-            self._show_project_view,
-            user
+            self._show_project_view
+            
             
         )
         print(" _show_user_view")
@@ -65,16 +65,22 @@ class UI:
     
 
 
-    def _show_add_view(self):
+    def _show_add_view(self, user):
         self._hide_current_view()
 
         self._current_view=AddView(
             self._root,
-            self._show_user_view, 
-         
+            user,
+            self.refresh_project_view,
+            self._show_user_view,
+            
             )
         print(" _show_user_view")
         self._current_view.pack()
+
+    def refresh_project_view(self):
+        if isinstance(self._current_view, ProjectView):
+            self._current_view.update_list() 
 
 
     def _show_project_view(self):
@@ -90,6 +96,8 @@ class UI:
    
     def _handle_logout(self):
         print("Logout handled")
+        self._show_login_view
+
 
     def _handle_project_summary(self):
         print("Project summary handled")
