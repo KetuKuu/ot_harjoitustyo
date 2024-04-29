@@ -6,15 +6,18 @@ Sovellukseen voi kirjautua ja käyttäjä voi lisätä, muokata, seurata ja pois
 
 
 # Asennus
-1.Siirry ensin Collecting-app kansioon
+1. Avaa terminaalissa kansio, johon haluat kloonata projektin ja käytä komentoa:
+  git clone https://github.com/your-username/your-repository.git
 
-2.Asenna riippuvuudet komennolla:
-poetry install
+2.Siirry Collecting-app kansioon ja asenna riippuvuudet komennolla:
+  poetry install tai poetry install --no-root
 
+3. Luo virtualiympäristö:
+   poetry shell
 
-3.Käynnistä sovellus komennolla:
+4.Käynnistä sovellus komennolla:
 
-poetry run invoke start
+    poetry run invoke start
 
 
 
