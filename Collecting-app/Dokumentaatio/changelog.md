@@ -29,11 +29,9 @@
 ## Viikko 6
 1. Tietokanta toimii.
 2.Korjattu drop_tables-metodia joka pudoti tiedokantataulut automaattisesti ohjelman käynnistyessä. Lisätty user_service.py moduliin käyttäjätunnuksen ja salasanan validointi ja korjattu metodi find_by_username(self, username):
-3.LoginView luokassa _handle_login-metodissa kutsu self._handle_login() sisältä itsesi. Korjattu.`UserView`-kutsun parametrit laittaa oikeaan järjestykseen. virhe pysy sama: korjattu ja koodi päivitetty, virhe sama.
+3.LoginView luokassa _handle_login-metodissa kutsu self._handle_login() sisältä itsesi. Korjattu.`UserView`-kutsun parametrit laittaa oikeaan järjestykseen. virhe pysy sama: korjattu ja koodi päivitetty, virhe sama. NYT KORJATTU, VIRHETTÄ ETSITTY 2 PÄIVÄÄ!.
+4. Tiedokanta, luokat LoginView, CreateUserView, UserView toimii.
+5. Aloitetaan AddView ja ProjectView kehittämistä.
 
-Traceback (most recent call last):
-  File "/usr/lib/python3.10/tkinter/__init__.py", line 1921, in __call__
-    return self.func(*args)
-TypeError: UI._show_user_view() missing 1 required positional argument: 'user'
 
 
