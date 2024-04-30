@@ -24,6 +24,10 @@ class UserView:
     def destroy(self):
         self._frame.destroy()  
 
+    def _add_handler(self, user):
+        self._handle_add_project(user)
+
+    
 
     def _logout_handler(self):
         user_service.logout(self.user) 
@@ -43,12 +47,12 @@ class UserView:
             self._frame = ttk.Frame(master=self._root)
 
              # Tervehdysteksti
-            """  self.welcome_label = ttk.Label(self._frame, text=f"Welcome {self.user.username}!")
-            self.welcome_label.pack() """
+            self.welcome_label = ttk.Label(self._frame, text=f"Welcome {self.user.username}!")
+            self.welcome_label.pack()
 
   
 
-            self.button_add_project = ttk.Button(self._frame, text="Lisää projekti", command=self._handle_add_project)
+            self.button_add_project = ttk.Button(self._frame, text="Lisää projekti", command=lambda: self._add_handler(self.user))
             self.button_add_project.pack()
 
             self.button_project_summary = ttk.Button(self._frame, text="Projektin tilanne", command=self._handle_project_summary)
