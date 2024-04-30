@@ -1,18 +1,16 @@
 from tkinter import ttk, constants, StringVar, filedialog, messagebox
-from entities.user import User
-from repositories.collecting_repository import CollectingRepository
-from services.user_service import user_service
+from services.collecting_service import collecting_service
 from database_connection import get_database_connection
 import csv
 
 
 class AddView:
-    def __init__(self, root, handle_add_phone, handle_back, user):
-        self._root = root
+    def __init__(self, root, handle_add_phone, handle_project_view, handle_back, user):
+        self._root = root  
         self._handle_add_phone = handle_add_phone
-        self._handle_back = handle_back
-        self.user = user
-        self._repository = CollectingRepository(get_database_connection)
+        self._handle_project_view = handle_project_view
+        self._handle_back = handle_back 
+        self.user =user 
         self._frame = None
         self._fields = ['image', 'series', 'model_year', 'price']
         self._entries = {}
@@ -32,16 +30,15 @@ class AddView:
             'model_year': self._entries['model_year'].get(),
             'price': self._entries['price'].get()
         }
-        self._repository.add_phone(**phone_data)  # Tallennetaan tiedot tietokantaan
-        self.clear_entries()
-        self.ui.refresh_project_view() 
-
-
-        self._handle_add_phone()
+        collecting_service.add_phone(phone_data)
+        self._clear_entries()
+        self._handle_project_view(self.user)
 
     def _clear_entries(self):
         for entry in self._entries.values():
             entry.delete(0, 'end')
+
+
 
     def _load_csv(self):
             filepath = filedialog.askopenfilename(
@@ -58,8 +55,11 @@ class AddView:
                 except Exception as e:
                     messagebox.showerror("Virhe", "Tiedoston latauksessa tapahtui virhe:\n" + str(e))
 
-    def back(self):
+    def _back(self):
         print("palauta UserView")
+
+        self._handle_back(self.user)
+        print("siirry userview")
        
 
 
@@ -82,7 +82,8 @@ class AddView:
         button_load_csv = ttk.Button(master=self._frame, text='Lataa CSV', command=self._load_csv)
         button_load_csv.grid(row=len(self._fields) + 2, columnspan=2, pady=5)
 
-        button_return = ttk.Button(master=self._frame, text="back to userview", command=self._handle_back)
+        button_return = ttk.Button(master=self._frame, text="back to userview", command=self._back)
+        #button_return = ttk.Button(master=self._frame, text="back to userview", command=self._handle_back(self.user))
         button_return.grid(row=len(self._fields) + 3, columnspan=2, pady=5)
       
         self._frame.pack()
