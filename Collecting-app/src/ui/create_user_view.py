@@ -4,8 +4,17 @@ from services.user_service import user_service, UsernameExistsError
 
 
 class CreateUserView:
+    """Uusien käyttäjien rekisteröitymisestä vastaava näkymä."""
     def __init__(self, root, handle_show_user_view, handle_show_login_view):
-        print("CreateUserView __init__() method")
+        """Vastaa uuden käyttäjän tietojen keräämisestä ja tietojen välittämisestä tiedokantaan user_service moduulin välityksellä.
+
+    Attributes:
+        _handle_show_user_view (function): Kutsuttava funktio siirtyäkseen käyttäjänäkymään.
+        _handle_show_login_view (function): Kutsuttava funktio palatakseen kirjautumisnäkymään.
+        _username_entry (Entry): Käyttäjänimen syöttökenttä.
+        _password_entry (Entry): Salasanan syöttökenttä.
+        """
+
         self._root = root
         self._handle_show_user_view = handle_show_user_view
         self._handle_show_login_view = handle_show_login_view
@@ -25,14 +34,20 @@ class CreateUserView:
 
 
     def _register_user(self):
+        """Rekisteröi uuden käyttäjän käyttäjän syöttämien tietojen perusteella.
+
+        Luodaan käyttäjä. Näyttää virheilmoituksen, jos käyttäjätunnus on jo käytössä tai jos käyttäjätunnusta ja salasanaa ei ole annettu.
+        Siirry käyttäjänäkymään onnistuneen rekisteröinnin jälkeen
+        """
+
         username = self._username_entry.get()
         password = self._password_entry.get()
 
         if username and password:
             try:
-                user = user_service.create_user(username, password)  # Luodaan käyttäjä
+                user = user_service.create_user(username, password)  
                 print("_register_user, Kirjauduminen onnistui")
-                self._handle_show_user_view(user)  # Siirry käyttäjänäkymään onnistuneen rekisteröinnin jälkeen
+                self._handle_show_user_view(user)  
             except UsernameExistsError:
                 self._error_variable.set("Käyttäjätunnus on jo käytössä")
                 print("_register_user, käyttäjätunnus käytössä")
