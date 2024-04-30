@@ -18,4 +18,6 @@
 | 2024-04-26 | 3 tuntia|Luokka CreateUserView korjaus ja ui.py käyttäjä ohjataaminen oikeseen näkymään| 
 | 2024-04-27 | 5 tuntia|Lisätty user-olio UserView-luokkaan, tulos missing required  'user', käyttäjätunnuksen luominen toimii, sisäänkirjautuminen antaa virheen. yritin korjatta| 
 | 2024-04-28 | 10 tuntia|UserView-kutsun parametrit on laitettu oikeaan järjestykseen. Virheilmoitus pysyy samana, mikäli yrittää kirjautua. "Lisätty tietokanta phones ja moduulit collecting_repository.py, add_view.py ja project_view.py."| 
-| yht   | 88   | | 
+| 2024-04-29 | 5 tuntia|Virheilmoitus pysyy samana. kehitetään AddView luokka. Taas tulos missing required  'user'"| 
+| 2024-04-30 | 6 tuntia|Virheilmoitus 'missing required 'user'' korjattu pajassa. Luokkaan AddView lisätty metodi add_phone, toimintoja parannettu ja ProjectView-luokan metodi update_list korjattuttu.| 
+| yht   | 99   | | 
