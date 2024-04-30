@@ -1,31 +1,25 @@
 # Käyttöohje
-Lataa tiedosto ja siirry terminalissa Collecting-app-kansioon
-
+Mikäli olet asentanut ohjelman README:n mukaisesti, käynnistä ohjelma.
 
 ## Ohjelman käynnistäminen
 
-1. Asenna riippuvuudet komennolla:
+Käynnistä ohjelma komennolla:
+    ```poetry run invoke start```
 
-    ```poetry install
-    ```
-2. Käynnistä sovellus komennolla:
-
-    ```bash
-    poetry run invoke start
-    ```
-
-
-## Sisäänkirjautuminen
-
-Käynnistä ohjelma. Voit valita suoran "Kirjautu" ja pääset käyttäjänäkymään.
-
-![Kirjautu](kuvat/sign in.png) 
 
 ## Uudenkäyttäjän luominen
 
 Valitse "Luo Käyttäjätunns". Anna haluamasi käyttäjätunnus. Valitse "Kirjaudu".
 
 ![Luo Käyttäjätunnus](kuvat/new user.png)
+
+
+## Sisäänkirjautuminen
+
+Mikäli oletkirautunut ulos, voit nyt valita suoran "Kirjautu" ja pääset käyttäjänäkymään.
+
+![Kirjautu](kuvat/sign in.png) 
+
 
 ## Käyttäjäjan sivu
 
@@ -35,14 +29,14 @@ Valitse käyttäjänäkymästä 'Kirjaudu ulos' tai 'Lisää projekti'. Projekti
 
 ## Puhelimen lisääminen kokoelmaan
 
-Käyttäliittymä toimii, mutta toiminnot ovat vielä kehityksessä.
+Voit lisätä puhelimen täyttämällä lomakkeen tyhjät kentät. "Lisää puhelin" -painikkeesta näet kaikki lisäämäsi puhelimet taulukossa
 
 ![Lisääminen](kuvat/AddView.png)
 
 ### csv-tiedoston lisääminen ohjelmaan
 
 Valitse "Lataa CSV" ja voit tuoda kokoelman CSV-tiedostosta ohjelmaan ja jatkaa harrastuksen ylläpitoa ohjelmassa. 
-Käyttöliittymä toimii, mutta ladatun tiedoston siirto projektinäkymään on vielä kehityksessä, joten latamalla tiedoston Joten tiedoston lataamisella saadaan virheilmoitusksen "Tiedoston latauksessa tapahtui virhe".
+Käyttöliittymä toimii, mutta ladatun tiedoston siirto projektinäkymään on vielä kehityksessä, joten latamalla tiedoston tulee virheilmoitus "Tiedoston latauksessa tapahtui virhe".
 
 ![CSV](kuvat/CSV.png)
 
