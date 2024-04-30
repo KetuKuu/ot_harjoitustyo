@@ -5,9 +5,20 @@ from services.user_service import user_service, InvalidCredentialsError
 
 
 class LoginView:
-    def __init__(self, root, handle_login, handle_show_create_user_view):
-        print(" LoginView __init__() method")
-        self._handle_show_create_user_view = handle_show_create_user_view # rekisteröitymisnäkymään.
+    """Käyttäjän rekisteröitymisestä vastaava näkymä."""
+
+    def __init__(self, root, handle_login, handle_show_create_user_view):       
+        """Luokan konstruktori, joka alustaa kirjautumisnäkymän.
+
+        Args:
+            root (Tk): Pääikkunan viite, johon tämä näkymä piirretään.
+            handle_login (function): Käyttäjänäkymä, kutsutaan, kun käyttäjä on kirjautunut onnistuneesti.
+            handle_show_create_user_view (function): Kutsutaan, kun käyttäjä haluaa siirtyä rekisteröitymisnäkymään.
+        """
+
+
+
+        self._handle_show_create_user_view = handle_show_create_user_view 
         self._handle_login = handle_login
 
         self._root = root
@@ -20,35 +31,52 @@ class LoginView:
         self.initialize()
     
     def pack(self):
+        """"Näyttää näkymän."""
         self._frame.pack(fill=constants.X)
 
     
 
     def destroy(self):
+        """"Tuhoaa näkymän."""
         self._frame.destroy()
 
     def _login(self):
+        """kirjautua sisään käyttäjätunnuksella.
+
+        Noutaa käyttäjänimen ja salasanan syötekentistä ja kirjautua sisään.
+        Jos kirjautuminen onnistuu, käyttäjä siirry käyttäjänäkymään. Jos kirjautuminen
+        epäonnistuu, näyttää virheviestin.
+        """
 
         username = self._username_entry.get()
         password = self._password_entry.get()
-        print("Kirjaudu:", username)
-        
+
         try:
             user = user_service.login(username, password)
-            print("Login successful")
             self._handle_login(user)
           
         except InvalidCredentialsError:
             self._show_error("Invalid username or password")
 
     def _show_error(self, message):
+        """Näyttää virheviestin käyttäjälle.
+
+        Args:
+            message (str): Virheviesti, joka näytetään.
+        """
+
         self._error_variable.set(message)
         self._error_label.grid()
 
     def _hide_error(self):
+        """Piilottaa virheviestin näkymästä.
+        """
+
         self._error_label.grid_remove()
 
     def _handle_register(self):
+        """Käsittelee uuden käyttäjän rekisteröitymisen pyynnön.
+        """
         print("Luo käyttäjätunnus")
 
 
