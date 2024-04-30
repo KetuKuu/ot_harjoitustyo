@@ -70,10 +70,10 @@ class UI:
 
         self._current_view=AddView(
             self._root,
-            user,
             self._show_add_view,
             self._show_project_view,
-            self._show_user_view
+            self._show_user_view,
+            user
             
             )
         print(" _show_user_view")
