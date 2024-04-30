@@ -53,10 +53,7 @@ class LoginView:
 
 
     def initialize(self):
-        #print("Tervetuloa käyttäjänäkymään!")
 
-        #welcome_label = ttk.Label(master=self._root, text="Tervetuloa Nokiin!")
-        #welcome_label.pack()
         if self._frame is None:
             self._frame = ttk.Frame(master=self._root)
             self._error_variable = StringVar(self._root)
@@ -72,7 +69,7 @@ class LoginView:
             self._password_entry = ttk.Entry(master=self._frame, show="*")
             self._password_entry.grid(row=1, column=1, sticky=constants.W)
 
-            #self._login_button = ttk.Button(master=self._frame, text="Kirjaudu", command=UserView)
+            
             self._login_button = ttk.Button(master=self._frame, text="Kirjaudu", command=self._login)
             self._login_button.grid(row=2, column=0, columnspan=2, pady=10)
 
