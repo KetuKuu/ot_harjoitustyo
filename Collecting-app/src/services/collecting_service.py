@@ -23,7 +23,9 @@ class CollectingService:
         self._collecting_repository.update_phone(phone_id, update_data)
 
     def delete_phone(self, phone_id):
-        self._collecting_repository.delete_phone(phone_id)
+        del_row = self._collecting_repository.delete_phone(phone_id)
+        print ("delete")
+        return del_row
 
     
 
