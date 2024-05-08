@@ -24,8 +24,17 @@ class CollectingService:
 
     def delete_phone(self, phone_id):
         del_row = self._collecting_repository.delete_phone(phone_id)
-        print ("delete")
         return del_row
+
+    def get_phone_stats(self):
+        return self._collecting_repository.fetch_phone_stats()
+    
+
+    """   def get_pic (self, raw_data):
+        for phone in raw_data:
+            return phone["image"]
+        return None """
+
 
     
 

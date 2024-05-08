@@ -27,6 +27,17 @@ class CollectingRepository:
         print ("delete repo")
         self._connection.commit()
         
+
+    def fetch_phone_stats(self):
+        cursor = self._connection.cursor()
+        cursor.execute('''
+            SELECT COUNT(*) AS total_phones, SUM(price) AS total_value FROM phones
+        ''')
+        stats = cursor.fetchone()
+        return stats if stats else {'total_phones': 0, 'total_value': 0}
+
+
+
     
 collecting_repository = CollectingRepository(get_database_connection())
   
