@@ -2,7 +2,7 @@ from tkinter import ttk, constants, StringVar, filedialog, messagebox, Label
 from services.collecting_service import collecting_service
 from entities.user import User
 import csv
-import os
+
 
 
 
@@ -48,7 +48,7 @@ class AddView:
             filetypes=(("JPEG files", "*.jpg;*.jpeg"), ("PNG files", "*.png"), ("All files", "*.*"))
         )
         print(filepath)
-        
+
         if filepath:
             entry_widget.delete(0, constants.END)  
             entry_widget.insert(0, filepath) 
