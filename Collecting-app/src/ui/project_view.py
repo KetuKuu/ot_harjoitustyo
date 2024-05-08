@@ -1,7 +1,5 @@
 from tkinter import ttk, constants, StringVar, Frame, Label, Button, Listbox, messagebox
 from services.collecting_service import collecting_service
-from PIL import Image, ImageTk 
-import os
 
 class ProjectView:
     def __init__(self, root, user, handle_login, handle_add):
@@ -11,10 +9,7 @@ class ProjectView:
         self._handle_add = handle_add
         self._frame = None
         self._listbox = None
-        self._stats_label = None
-        self._image_label = None
         self._phone_ids = []
-      
         
         self.initialize()
 
@@ -30,37 +25,7 @@ class ProjectView:
     def _back(self):
         self._handle_login(self.user)
 
-
     def update_list(self):
-        self._listbox.delete(0, 'end')
-        self. _phone_ids.clear()#lisäys
-
-        headers = f"{'Image':<20}{'Series':<15}{'Model Year':<15}{'Price':<10}"
-        self._listbox.insert(constants.END, headers)
-        data = collecting_service.fetch_data() 
-        
-        for item in data:
-            item_frame = ttk.Frame(self._listbox)
-            item_frame.pack(fill=constants.X)
-        try:
-            image = Image.open(item["image"])
-            image.thumbnail((50, 50))
-            photo_image = ImageTk.PhotoImage(image) 
-            image_label = ttk.Label(item_frame, image=photo_image)
-            image_label.image = photo_image
-            image_label.pack(side=constants.LEFT, padx=5)
-
-        except FileNotFoundError:
-            print("FileNotFound")
-            
-        item_label_text = f"{'Image':<20}{'Series':<15}{'Model Year':<15}{'Price':<10}"
-        text_label = ttk.Label(item_frame, text=item_label_text)
-        text_label.pack(side=constants.LEFT, padx=5)
-
-        
-        self._phone_ids.append(item["id"])
-
-    """    def update_list(self):
         self._listbox.delete(0, 'end')
         self. _phone_ids.clear()#lisäys
 
@@ -74,27 +39,7 @@ class ProjectView:
             #self._listbox.insert(constants.END, headers)
             self._listbox.insert(constants.END, formatted_row)
             self._phone_ids.append(item["id"])
-            self._display_image(item['image']) """
         
-    """ def _display_image(self, filepath):
-        if not filepath or not os.path.exists(filepath):
-            print("Kuvatiedostoa ei löydy:", filepath)
-            return
-
-        try: 
-            image = Image.open(filepath) 
-            self.photo_image = ImageTk.PhotoImage(image)  
-            if hasattr(self, '_image_label'):
-                self._image_label.config(image=self.photo_image)
-            else:
-                self._image_label = Label(self._frame, image=self.photo_image)
-                self._image_label.pack()
-
-        except FileNotFoundError:
-            print("FileNotFound", filepath)
-        except:
-             print("Virhe kuvan lataamisessa") """
-
 
     def _delete_selected(self):
         selected_indices = self._listbox.curselection()
@@ -112,36 +57,19 @@ class ProjectView:
             messagebox.showerror("Error", "Invalid selection")
 
 
-      
-
-
-    def update_stats(self):
-        stats = collecting_service.get_phone_stats()
-        self._stats_label.config(text=f"Sinulla on {stats['total_phones']} puhelinta, joiden yhteisarvo on {stats['total_value']} euroa.")
-
-
-
-
-
-
     def initialize(self):
         self._frame = ttk.Frame(master=self._root)
+
    
         header_label = ttk.Label(self._frame, text="Projektien Yhteenveto")
         header_label.pack(fill=constants.X)
 
-        self._stats_label = ttk.Label(self._frame, text="")
-        self._stats_label.pack(fill=constants.X)
 
         self._listbox = Listbox(self._frame, height=10)
         self._listbox.pack(fill=constants.BOTH, expand=True)
+        
+
         self.update_list()
-        self.update_stats()
-
-        #self._image_label = Label(self._frame) 
-        #self._image_label.grid(row=0, column=2, sticky=constants.E)
-
-
 
         # Buttons
         add_button = ttk.Button(self._frame, text="Lisää Uusi Puhelin", command=lambda: self._add_handler(self.user))
