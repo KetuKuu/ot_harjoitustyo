@@ -2,6 +2,7 @@ import csv
 from tkinter import ttk, constants
 from services.user_service import user_service
 from entities.user import User
+from ui.project_view import ProjectView
 
 
 class UserView:
@@ -28,11 +29,18 @@ class UserView:
         self._handle_add_project(user)
 
     
+    def _handler_project(self, user):
+        self._handle_project_summary(user)
+
+    
 
     def _logout_handler(self):
         user_service.logout(self.user) 
         self._handle_logout()
         print("Logout successful")
+
+
+    
 
 
 
@@ -55,7 +63,7 @@ class UserView:
             self.button_add_project = ttk.Button(self._frame, text="Lisää projekti", command=lambda: self._add_handler(self.user))
             self.button_add_project.pack()
 
-            self.button_project_summary = ttk.Button(self._frame, text="Projektin tilanne", command=self._handle_project_summary)
+            self.button_project_summary = ttk.Button(self._frame, text="Projektin tilanne", command=lambda: self._handler_project(self.user))
             self.button_project_summary.pack()
 
             self.button_logout = ttk.Button(self._frame, text="Kirjaudu ulos", command=self._handle_logout)

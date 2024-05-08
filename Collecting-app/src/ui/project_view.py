@@ -1,5 +1,6 @@
 from tkinter import ttk, constants, StringVar, Frame, Label, Button, Listbox, messagebox
 from services.collecting_service import collecting_service
+from PIL import Image, ImageTk 
 
 class ProjectView:
     def __init__(self, root, user, handle_login, handle_add):
@@ -9,6 +10,8 @@ class ProjectView:
         self._handle_add = handle_add
         self._frame = None
         self._listbox = None
+        self._stats_label = None
+        self._image_label = None
         self._phone_ids = []
         
         self.initialize()
@@ -39,6 +42,7 @@ class ProjectView:
             #self._listbox.insert(constants.END, headers)
             self._listbox.insert(constants.END, formatted_row)
             self._phone_ids.append(item["id"])
+            self. _display_image(item['image'])
         
 
     def _delete_selected(self):
@@ -56,20 +60,46 @@ class ProjectView:
         else:
             messagebox.showerror("Error", "Invalid selection")
 
+    def _display_image(self, filepath):
+
+        try: 
+            image = Image.open(filepath) 
+            self.photo_image = ImageTk.PhotoImage(image)  
+
+        except FileNotFoundError:
+            print("FileNotFound")
+
+
+      
+
+
+    def update_stats(self):
+        stats = collecting_service.get_phone_stats()
+        self._stats_label.config(text=f"Sinulla on {stats['total_phones']} puhelinta, joiden yhteisarvo on {stats['total_value']} euroa.")
+
+
+
+
+
 
     def initialize(self):
         self._frame = ttk.Frame(master=self._root)
-
    
         header_label = ttk.Label(self._frame, text="Projektien Yhteenveto")
         header_label.pack(fill=constants.X)
 
+        self._stats_label = ttk.Label(self._frame, text="")
+        self._stats_label.pack(fill=constants.X)
 
         self._listbox = Listbox(self._frame, height=10)
         self._listbox.pack(fill=constants.BOTH, expand=True)
-        
-
         self.update_list()
+        self.update_stats()
+
+        #self._image_label = Label(self._frame) 
+        #self._image_label.grid(row=0, column=2, sticky=constants.E)
+
+
 
         # Buttons
         add_button = ttk.Button(self._frame, text="Lisää Uusi Puhelin", command=lambda: self._add_handler(self.user))

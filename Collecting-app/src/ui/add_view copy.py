@@ -1,9 +1,8 @@
-from tkinter import ttk, constants, StringVar, filedialog, messagebox, Label
+from tkinter import ttk, constants, StringVar, filedialog, messagebox
 from services.collecting_service import collecting_service
 from entities.user import User
 import csv
 import os
-
 
 
 class AddView:
@@ -16,8 +15,6 @@ class AddView:
         self._frame = None
         self._fields = ['image', 'series', 'model_year', 'price']
         self._entries = {}
- 
-
 
         self.initialize()
 
@@ -47,14 +44,9 @@ class AddView:
             title="Valitse kuva",
             filetypes=(("JPEG files", "*.jpg;*.jpeg"), ("PNG files", "*.png"), ("All files", "*.*"))
         )
-        print(filepath)
-        
         if filepath:
-            entry_widget.delete(0, constants.END)  
+            entry_widget.delete(0, constants.END)  # Poista aiempi sisältö
             entry_widget.insert(0, filepath) 
-            self._display_image(filepath)
-
- 
 
     def _load_csv(self):
             filepath = filedialog.askopenfilename(
@@ -78,8 +70,9 @@ class AddView:
 
 
     def initialize(self):
-        self._frame = ttk.Frame(master=self._root)
+
         #nappi _load_csv file
+        self._frame = ttk.Frame(master=self._root)
 
         for i, field in enumerate(self._fields):
             label = ttk.Label(master=self._frame, text=field.capitalize() + ':')
@@ -117,6 +110,7 @@ class AddView:
         button_load_csv.grid(row=len(self._fields) + 2, columnspan=2, pady=5)
 
         button_return = ttk.Button(master=self._frame, text="back to userview", command=self._back)
+        #button_return = ttk.Button(master=self._frame, text="back to userview", command=self._handle_back(self.user))
         button_return.grid(row=len(self._fields) + 3, columnspan=2, pady=5)
       
         self._frame.pack()
