@@ -33,5 +33,11 @@
 4. Tiedokanta, luokat LoginView, CreateUserView, UserView toimii.
 5. Aloitetaan AddView ja ProjectView kehittämistä.
 
+## Viikko7
+1.ProjectView sisältää nyt listan käyttäjän lisäämiä puhelimia. Puhelimia voi lisätä AddView-näkymässä.
+2.Lisätty yhteenveto.
+3.Koodin korjausta ja valokuvien lisääminen. Lisätty FileDialog-moduuli käyttäjälle tiedon lisäämiseen Addview.py-moduuliin. Valokuvien sijan tulisi näkyä ainoastaan kuvapolku."
+4. Kuvapolku muutettu kuvaksi mutta FileDialog ominaisuus poista listasta rivettäin hävisi. lisätty jokaiseen rivin delete-nappi.
+
 
 
