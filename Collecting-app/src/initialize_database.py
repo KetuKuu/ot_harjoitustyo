@@ -48,8 +48,8 @@ def initialize_database():
 
     if os.getenv('DROP_TABLES', 'False') == 'True':
         drop_tables(connection)
-    create_tables(connection)
-    create_phone_table(connection)
+        create_tables(connection)
+        create_phone_table(connection)
 
 if __name__ == "__main__":
     initialize_database()
