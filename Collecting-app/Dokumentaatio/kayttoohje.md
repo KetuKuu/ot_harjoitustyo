@@ -18,14 +18,14 @@ Valitse "Luo Käyttäjätunns". Anna haluamasi käyttäjätunnus. Valitse "Kirja
 
 Mikäli oletkirautunut ulos, voit nyt valita suoran "Kirjautu" ja pääset käyttäjänäkymään.
 
-![Kirjautu](kuvat/sign in.png) 
+![Kirjautu](kuvat/sign_in.png) 
 
 
 ## Käyttäjäjan sivu
 
 Valitse käyttäjänäkymästä 'Kirjaudu ulos' tai 'Lisää projekti'. Projektin tilanne on vielä kehityksessä, ja nappi ei toimi kunnolla.
 
-![Käyttäjänäkymä](kuvat/User view.png)
+![Käyttäjänäkymä](kuvat/User_view.png)
 
 ## Puhelimen lisääminen kokoelmaan
 
