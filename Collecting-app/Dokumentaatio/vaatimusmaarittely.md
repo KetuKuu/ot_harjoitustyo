@@ -20,21 +20,21 @@ Projektin tilannenäkymässä pääsee takaisin käyttäjänäkymään.
 **Perusversion tarjoama toiminnallisuus**
 
 * Ennen kirjautumista
-	* Käyttäjä luo käyttäjätunnuksen
+	* Käyttäjä luo käyttäjätunnuksen ☑
 		* Käyttäjätunnus voi olla käyttäjän sähköpostiosoite
 
-	* Käyttäjä kirjautu järjestelmään
-		* Kirjautuminen onnistuu syötettäessä olemassaolevan käyttäjätunnuksen 
-		* ohjelma ilmoittaa mikäli käyttäjä ei ole rekisteröity
+	* Käyttäjä kirjautu järjestelmään ☑
+		* Kirjautuminen onnistuu syötettäessä olemassaolevan käyttäjätunnuksen ☑
+		* ohjelma ilmoittaa mikäli käyttäjä ei ole rekisteröity ☑
 
 	
 * Kirjautumisen jälkeen
 	
-	* Käyttäjä näkee yhteenvedon projektin tilanteesta
-	* Käyttäjä voi lisätä uusia Nokia-puhelimia kokoelman sekä poista ja muokata jo kokoelman kuuluvia puhelimia. 
-	* Projektin tilannenäkymässä käyttäjä näkee kaikki tallennetut puhelimet tietoineen ja palata takaisin käyttäjäsivulle.
-	* Käyttäjä voi kirjautua ulos
-	* Luotu projekti näkyy ainoastaan sen luoneelle käyttäjälle
+	* Käyttäjä näkee yhteenvedon projektin tilanteesta ☑
+	* Käyttäjä voi lisätä uusia Nokia-puhelimia kokoelman ☑ sekä poista ☑ ja muokata jo kokoelman kuuluvia puhelimia. 
+	* Projektin tilannenäkymässä käyttäjä näkee kaikki tallennetut puhelimet tietoineen ☑ ja voi palata takaisin 		käyttäjäsivulle ☑.
+	* Käyttäjä voi kirjautua ulos ☑
+	* Luotu projekti näkyy ainoastaan sen luoneelle käyttäjälle ☑
 
 **Jatkokehitysideoita**
 
