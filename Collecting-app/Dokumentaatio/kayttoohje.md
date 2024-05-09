@@ -11,7 +11,7 @@ Käynnistä ohjelma komennolla:
 
 Valitse "Luo Käyttäjätunns". Anna haluamasi käyttäjätunnus. Valitse "Kirjaudu".
 
-![Luo Käyttäjätunnus](kuvat/new user.png)
+![Luo Käyttäjätunnus](kuvat/new_user.png)
 
 
 ## Sisäänkirjautuminen
