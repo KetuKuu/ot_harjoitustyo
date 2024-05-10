@@ -20,7 +20,9 @@
 | 2024-04-28 | 10 tuntia|UserView-kutsun parametrit on laitettu oikeaan järjestykseen. Virheilmoitus pysyy samana, mikäli yrittää kirjautua. "Lisätty tietokanta phones ja moduulit collecting_repository.py, add_view.py ja project_view.py."| 
 | 2024-04-29 | 5 tuntia|Virheilmoitus pysyy samana. kehitetään AddView luokka. Taas tulos missing required  'user'"| 
 | 2024-04-30 | 6 tuntia|Virheilmoitus 'missing required 'user'' korjattu pajassa. Luokkaan AddView lisätty metodi add_phone, toimintoja parannettu ja ProjectView-luokan metodi update_list korjattuttu.| 
-| 2024-06-30 | 2 tuntia|Koodi kommentointi ja järjestäminen.| 
-| 2024-07-30 | 7 tuntia|Luokkaan Project_view on lisätty tiedostojen poistamisen mahdollisuus def _delete_selected. Poistaminen käsitelty myös collecting_repository.py- ja collecting_service.py-moduuleissa. Project_view näyttää ainoastaan kuvapolun eikä kuvaa itseään. Neljä tuntia etsitty ratkaisua. Ei toimi vieläkään.| 
-| 2024-08-30 |8 tuntia|Kuvan käsittely siirretty kaikkiin project_view.py-moduuliin. Valokuva näkyy, mutta aikaisemman rivin poistaminen ei toimi enää. Lisätty napit jokaiseen käyttäjän lisäämään riviin. Otsikot puuttuvat myös.| 
-| yht   | 116   | | 
+| 2024-05-06 | 2 tuntia|Koodi kommentointi ja järjestäminen.| 
+| 2024-05-07 | 7 tuntia|Luokkaan Project_view on lisätty tiedostojen poistamisen mahdollisuus def _delete_selected. Poistaminen käsitelty myös collecting_repository.py- ja collecting_service.py-moduuleissa. Project_view näyttää ainoastaan kuvapolun eikä kuvaa itseään. Neljä tuntia etsitty ratkaisua. Ei toimi vieläkään.| 
+| 2024-05-08 |8 tuntia|Kuvan käsittely siirretty kaikkiin project_view.py-moduuliin. Valokuva näkyy, mutta aikaisemman rivin poistaminen ei toimi enää. Lisätty napit jokaiseen käyttäjän lisäämään riviin. Otsikot puuttuvat myös.| 
+| 2024-05-09 |5 tuntia| Kaikki Kuvan käsittely jätetään project_view.py-moduuliin. Otsikot lisätty, mutta poistaminen toimi nyt väärin. yhteenveto sijoitettu user_view näkyymään.| 
+| 2024-05-10 |8 tuntia|Testien parannukset. Poista nappi toimii jatkuvasti väärin. Tiedokannatsa poistetaan, mutta käyttäjä näkymässä poistettu rivi pysyy, kunnes tapahtu sivun vaihto. Pajassa ei osattu auttaa, miten pystyn korjaamaan tilanteen, jotta Listbox poistaisi edellisen näkymän ennen uuden päivittämistä.| 
+| yht   | 129   | | 
