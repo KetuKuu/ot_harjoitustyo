@@ -2,8 +2,6 @@ from database_connection import get_database_connection
 import os
 
 
-
-
 def drop_tables(connection):
     print("initialize, Dropping tables...")
     cursor = connection.cursor()
@@ -25,6 +23,7 @@ def create_tables(connection):
     print("taulu luotu")
     connection.commit()
 
+
 def create_phone_table(connection):
     cursor = connection.cursor()
     cursor.execute('''
@@ -40,9 +39,7 @@ def create_phone_table(connection):
     connection.commit()
 
 
-
 def initialize_database():
-    
 
     connection = get_database_connection()
 
@@ -50,6 +47,7 @@ def initialize_database():
         drop_tables(connection)
         create_tables(connection)
         create_phone_table(connection)
+
 
 if __name__ == "__main__":
     initialize_database()

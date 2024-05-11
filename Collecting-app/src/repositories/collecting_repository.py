@@ -16,10 +16,8 @@ class CollectingRepository:
 
     def fetch_data(self):
         cursor = self._connection.cursor()
-        # cursor.execute('SELECT * FROM phones')
         cursor.execute(
             "SELECT id, image, series, model_year, price FROM phones")
-        # print(data.fetchall())
         print("hakuu")
         return cursor.fetchall()
 

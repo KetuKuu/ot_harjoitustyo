@@ -7,13 +7,12 @@ from repositories.collecting_repository import CollectingRepository
 
 def main():
 
-   
     initialize_database()
     window = Tk()
     window.title("Nokia")
 
     window.geometry("600x400")
-   
+
     ui_view = UI(window)
     ui_view.start()
 
