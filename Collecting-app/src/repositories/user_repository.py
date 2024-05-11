@@ -15,9 +15,7 @@ class UserRepository:
 
         self._connection = connection
 
-
-
-    def add_user(self,new_user):
+    def add_user(self, new_user):
         """Lisää uuden käyttäjän tietokantaan.
 
         Args:
@@ -28,10 +26,10 @@ class UserRepository:
         """
 
         cursor = self._connection.cursor()
-        cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (new_user.username, new_user.password))
+        cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)",
+                       (new_user.username, new_user.password))
         self._connection.commit()
         return new_user
-
 
     def find_by_username(self, username):
         """Etsii käyttäjän käyttäjänimen perusteella.
@@ -42,7 +40,7 @@ class UserRepository:
         Returns:
             User|None: Löydetty käyttäjä-olio tai None, jos käyttäjää ei löydy.
         """
-     
+
         cursor = self._connection.cursor()
 
         cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
@@ -53,8 +51,8 @@ class UserRepository:
             return User(rows["username"], rows["password"])
         else:
             return None
-        
-    def find_user(self, username, password):              
+
+    def find_user(self, username, password):
         """Etsii käyttäjän käyttäjänimen ja salasanan perusteella tietokannasta.
 
         Args:
@@ -66,25 +64,28 @@ class UserRepository:
         """
 
         cursor = self._connection.cursor()
-        cursor.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
+        cursor.execute(
+            "SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
         row = cursor.fetchone()
         if row:
             return User(row["username"], row["password"])
         else:
-            return None 
+            return None
 
 
-    def remove_user(self, user_id):               
-        """Poistaa käyttäjän tietokannasta käyttäjän ID:n perusteella.
+    def remove_user_by_username(self, username):
+        """Poistaa käyttäjän tietokannasta käyttäjätunnuksen perusteella.
 
         Args:
-            user_id (int): Käyttäjän yksilöivä tunniste.
+            username (int): Käyttäjän yksilöivä tunniste.
         """
-
-
-        cursor = self._connection.cursor()
-        cursor.execute("DELETE FROM users WHERE id = ?", (user_id,))
+ 
+        cursor = self._connection.cursor()    
+        cursor.execute("DELETE FROM users WHERE username = ?", (username,))
         self._connection.commit()
-    
+
+
+
+        
 
 user_repository = UserRepository(get_database_connection())
