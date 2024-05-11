@@ -1,16 +1,22 @@
 class User:
+    """Luokka kuvaa yksittäistä käyttäjä
+
+    Attributes:
+        username: Merkkijono, kuivailee käyttäjätunnusta
+        password: Merkkijono, kuvailee salasana
+    """
 
     def __init__(self, username, password):
-        
+        """Luokan konstruktori käyttäälle
+
+        Args:
+        username: Merkkijono, kuivailee käyttäjätunnusta
+        password: Merkkijono, kuvailee salasana
+
+
+        """
 
         self.username = username
         self.password = password
-        #self.email = email
-        print("User")
-    def change_password(self, new_password):
-        self.password = new_password
 
 
-    #def update_email(self, new_email):
-        #self.email = new_email
-    
