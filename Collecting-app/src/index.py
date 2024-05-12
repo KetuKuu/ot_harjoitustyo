@@ -9,7 +9,7 @@ def main():
 
     initialize_database()
     window = Tk()
-    window.title("Nokia")
+    window.title("Nokia Collecting App")
 
     window.geometry("600x400")
 

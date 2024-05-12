@@ -83,6 +83,8 @@ class AddView:
     def initialize(self):
         self._frame = ttk.Frame(master=self._root)
 
+   
+
         """load valokuva "image" näkymä:"""
         self._frame = ttk.Frame(master=self._root)
         for i, field in enumerate(self._fields):

@@ -11,11 +11,9 @@ class UI:
 
         self._root = root
         self._current_view = None
-        print("UI.init")
 
     def start(self):
         self._show_login_view()
-        print("UI.start")
 
     def _hide_current_view(self):
         if self._current_view:
@@ -31,20 +29,17 @@ class UI:
             self._show_user_view,
             self._show_create_user_view
         )
-        print("_show_login_view method")
 
         self._current_view.pack()
 
     def _show_create_user_view(self):
         self._hide_current_view()
-        print(" _show_create_user_view")
 
         self._current_view = CreateUserView(
             self._root,
             self._show_user_view,
             self._show_login_view
         )
-        print(" _show_create_user_view")
         self._current_view.pack()
 
     def _show_user_view(self, user):
@@ -59,7 +54,6 @@ class UI:
 
 
         )
-        print(" _show_user_view")
         self._current_view.pack()
 
     def _show_add_view(self, user):
@@ -73,7 +67,6 @@ class UI:
             user
 
         )
-        print(" _show_user_view")
         self._current_view.pack()
 
     def _show_project_view(self, user):
@@ -86,5 +79,4 @@ class UI:
             self._show_add_view
             
         )
-        print(" projekt_view")
         self._current_view.pack()

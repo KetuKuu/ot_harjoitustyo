@@ -77,7 +77,10 @@ class ProjectView:
                 image_label.pack(side=constants.LEFT, padx=5)
             except FileNotFoundError:
                 print("FileNotFound")
-        
+
+            except IsADirectoryError: 
+                print("DirectorynotFound")
+   
             
             item_label_text = f"{item['series']:<15}{item['model_year']:<15}{item['price']:<10}"
             text_label = ttk.Label(item_frame, text=item_label_text)

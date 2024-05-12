@@ -3,15 +3,13 @@ import os
 
 
 def drop_tables(connection):
-    print("initialize, Dropping tables...")
     cursor = connection.cursor()
     cursor.execute('DROP TABLE IF EXISTS users;')
     connection.commit()
-    print("Tables dropped.")
+
 
 
 def create_tables(connection):
-    print("initialize database,create_tables")
     cursor = connection.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS users (
@@ -20,7 +18,6 @@ def create_tables(connection):
             password TEXT NOT NULL
         );
     ''')
-    print("taulu luotu")
     connection.commit()
 
 
@@ -35,7 +32,6 @@ def create_phone_table(connection):
             price DECIMAL
         );
     ''')
-    print("Phone table created")
     connection.commit()
 
 

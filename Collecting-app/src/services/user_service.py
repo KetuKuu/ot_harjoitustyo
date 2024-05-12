@@ -81,7 +81,6 @@ class UserService:
         user = self.user_repository.find_user(username, password)
         if user and user.password == password:
             self.current_user = user
-            print("login current_user")
             return user
         raise InvalidCredentialsError("Invalid username or password")
         return None
@@ -93,7 +92,6 @@ class UserService:
         Returns:
             User: Tällä hetkellä kirjautunut käyttäjä, tai None jos kukaan ei ole kirjautuneena.
         """
-        print("get_current_user userService")
         return self.current_user
 
     def logout(self):
