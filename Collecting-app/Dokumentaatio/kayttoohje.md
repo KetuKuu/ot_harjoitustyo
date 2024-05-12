@@ -25,22 +25,22 @@ Mikäli oletkirautunut ulos, voit nyt valita suoran "Kirjautu" ja pääset käyt
 
 Valitse käyttäjänäkymästä 'Kirjaudu ulos' tai 'Lisää projekti'. Projektin tilanne on vielä kehityksessä, ja nappi ei toimi kunnolla.
 
-![Käyttäjänäkymä](kuvat/User_view.png)
+![Käyttäjänäkymä](kuvat/userview.png)
 
 ## Puhelimen lisääminen kokoelmaan
 
-Voit lisätä puhelimen täyttämällä lomakkeen tyhjät kentät. "Lisää puhelin" -painikkeesta näet kaikki lisäämäsi puhelimet taulukossa
+Voit lisätä puhelimen täyttämällä lomakkeen tyhjät kentät. "Lisää puhelin" -painikkeesta näet kaikki lisäämäsi puhelimet taulukossa.
+Valitse "Lisää kuva" ja voit lisätä kuvan uudesta puhelimesta.
 
-![Lisääminen](kuvat/AddView.png)
+![Lisääminen](kuvat/addview2.png)
 
-### csv-tiedoston lisääminen ohjelmaan
+### Projektinäkymä
 
-Valitse "Lataa CSV" ja voit tuoda kokoelman CSV-tiedostosta ohjelmaan ja jatkaa harrastuksen ylläpitoa ohjelmassa. 
-Käyttöliittymä toimii, mutta ladatun tiedoston siirto projektinäkymään on vielä kehityksessä, joten latamalla tiedoston tulee virheilmoitus "Tiedoston latauksessa tapahtui virhe".
+Tässä näkymässä käyttäjä näkee kaikki kokoelmassa olevat puhelimet. 
 
-![CSV](kuvat/CSV.png)
+![Projekti](kuvat/projectview.png)
 
 
 ## Ohjelman sulkeminen
 
-Sulje ohjelma X-painikkeesta.
+Sulje ohjelma X-painikkeesta tai kirjautu ulos.
