@@ -35,8 +35,35 @@ Sovellukseen voi kirjautua ja käyttäjä voi lisätä, muokata, seurata ja pois
 
 [Arkkitehtuuri](Collecting-app/Dokumentaatio/arkkitehtuuri.md)
 
+[Testausdokumentti](Collecting-app/Dokumentaatio/testaus.md)
 
 
 # Komentorivitoiminnot
 
-Testaus ei toimi
+
+### Ohjelman suorittaminen
+
+Ohjelman pystyy suorittamaan komennolla:
+
+```bash
+poetry run invoke start
+```
+
+### Testaus
+
+Testit suoritetaan komennolla:
+
+```bash
+poetry run invoke test
+```
+
+### Testikattavuus
+
+Testikattavuusraportin voi generoida komennolla:
+
+```bash
+poetry run invoke coverage-report
+```
+
+Raportti generoituu _htmlcov_-hakemistoon.
+
