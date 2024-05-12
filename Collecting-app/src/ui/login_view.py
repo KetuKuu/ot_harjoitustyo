@@ -1,7 +1,6 @@
 from tkinter import ttk, constants, StringVar
 from services.user_service import user_service, InvalidCredentialsError
 
-
 class LoginView:
     """Käyttäjän rekisteröitymisestä vastaava näkymä."""
 
@@ -72,33 +71,28 @@ class LoginView:
         if self._frame is None:
             self._frame = ttk.Frame(master=self._root)
 
-            self.heading_label = ttk.Label(master=self._root, text="Tässä voit kirjautua ohjelmaan")
-
             self._error_variable = StringVar(self._root)
 
             self._username_label = ttk.Label(master=self._frame, text="Käyttäjätunnus:")
-            self._username_label.grid(row=0, column=0, sticky=constants.E)
+            self._username_label.grid(padx=5,pady=5)
             self._username_entry = ttk.Entry(master=self._frame)
-            self._username_entry.grid(row=0, column=1, sticky=constants.W)
+            self._username_entry.grid(row=0, column=1, sticky=(constants.E, constants.W))
 
-            self._password_label = ttk.Label(
-                master=self._frame, text="Salasana:")
-            self._password_label.grid(row=1, column=0, sticky=constants.E)
+            self._password_label = ttk.Label(master=self._frame, text="Salasana:")
+            self._password_label.grid(row=2, column=0, sticky=constants.E)
             self._password_entry = ttk.Entry(master=self._frame, show="*")
-            self._password_entry.grid(row=1, column=1, sticky=constants.W)
+            self._password_entry.grid(row=2, column=1, sticky=constants.W)
 
-            self._login_button = ttk.Button(
-                master=self._frame, text="Kirjaudu", command=self._login)
-            self._login_button.grid(row=2, column=0, columnspan=2, pady=10)
+            self._login_button = ttk.Button(master=self._frame, text="Kirjaudu", command=self._login)
+            self._login_button.grid(row=3, column=0, columnspan=2, pady=(10, 20))
 
-            self._register_button = ttk.Button(
-                master=self._frame, text="Luo käyttäjätunnus", command=self._handle_show_create_user_view)
-            self._register_button.grid(row=3, column=0, columnspan=2)
+            self._register_button = ttk.Button(master=self._frame, text="Luo käyttäjätunnus", command=self._handle_show_create_user_view)
+            self._register_button.grid(row=4, column=0, columnspan=2)
 
-            self._error_label = ttk.Label(
-                self._frame, textvariable=self._error_variable, foreground='red')
-            self._error_label.grid(row=4, column=0, columnspan=2)
+            self._error_label = ttk.Label(self._frame, textvariable=self._error_variable, foreground='red')
+            self._error_label.grid(row=5, column=0, columnspan=2)
 
 
 
             self._frame.pack()
+            

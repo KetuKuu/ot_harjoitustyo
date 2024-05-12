@@ -1,11 +1,26 @@
 from tkinter import ttk, constants, StringVar, filedialog, messagebox, Label
 from services.collecting_service import collecting_service
 from entities.user import User
-import csv
+
 
 
 class AddView:
+    """Projektin lisäämisestä vastaava näkymä."""
+
     def __init__(self, root, handle_add_phone, handle_project_view, handle_back, user):
+        """Luokan konstruktori. Luo uuden projektin lisääysnäkymään ja käsittele lisäyksen käyttämällä filedialog`i.
+
+        Args:
+            handle_add_phone: Kutusttava funktio projektin lisämiseen,Projektin lisääminen tapahtu samalla sivulla.
+            handle_project_view: Kutsuttava fnktio siirtyäkseen projekti näkymään.
+            handle_back: Funktio palatakseen käyttäjänäkymään 
+            user: Käyttäjäolio,jolle näkymää liittyy.(lisäätty jo tässä vaiheessa helpottaakseen jatkokehitustä)
+        
+            Attributes:    
+                _fields: Lista Puhelimen tietokentistä 
+                _entries: Sanakirja, joka sisältää puhelimen tiedokenttiin liittyvät kentät.
+        """
+        
         self._root = root
         self._handle_add_phone = handle_add_phone
         self._handle_project_view = handle_project_view
@@ -24,6 +39,11 @@ class AddView:
         self._frame.destroy()
 
     def _add_phone(self):
+        """Käsittele puhelimen lisäämiseen sanakirjaan phone_data.
+        Tiedot välitettään tallennusta varten collecting_service.ad_phone() -funktiolle.
+        Tyhjenetään käyttäliittymä kenttä ja määritellään siirtymä projektinäkymään
+
+            """
         phone_data = {
             'image': self._entries['image'].get(),
             'series': self._entries['series'].get(),
@@ -35,29 +55,35 @@ class AddView:
         self._handle_project_view(self.user)
 
     def _clear_entries(self):
+        """Metoodi syöttökentän tyhjentämiselle"""
         for entry in self._entries.values():
             entry.delete(0, 'end')
 
     def _select_image(self, entry_widget):
+        """Valitse kuvatiedosto käyttämällä filedialogi.
+            kuvapolku tallennetaan muuttujan "filepath".
+        
+        """
         filepath = filedialog.askopenfilename(
             title="Valitse kuva",
             filetypes=(("JPEG files", "*.jpg;*.jpeg"),
                        ("PNG files", "*.png"), ("All files", "*.*"))
         )
-        print(filepath)
 
         if filepath:
+            """Jos käyttäjä on valinnut tiedoston, poista nykyinen teksti syöttökentästä 
+            ja aseta valitun tiedoston polku syöttökentän tekstiksi."""
             entry_widget.delete(0, constants.END)
             entry_widget.insert(0, filepath)
 
     def _back(self):
         self._handle_back(self.user)
-        # siirry userview näkymään
+  
 
     def initialize(self):
         self._frame = ttk.Frame(master=self._root)
 
-        # load valokuva "image" kenttä:
+        """load valokuva "image" näkymä:"""
         self._frame = ttk.Frame(master=self._root)
         for i, field in enumerate(self._fields):
             label = ttk.Label(master=self._frame,

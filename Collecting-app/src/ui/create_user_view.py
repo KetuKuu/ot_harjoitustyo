@@ -9,7 +9,7 @@ class CreateUserView:
     def __init__(self, root, handle_show_user_view, handle_show_login_view):
         """Vastaa uuden käyttäjän tietojen keräämisestä ja tietojen välittämisestä tiedokantaan user_service moduulin välityksellä.
 
-    Attributes:
+    Args:
         _handle_show_user_view (function): Kutsuttava funktio siirtyäkseen käyttäjänäkymään.
         _handle_show_login_view (function): Kutsuttava funktio palatakseen kirjautumisnäkymään.
         _username_entry (Entry): Käyttäjänimen syöttökenttä.
@@ -58,12 +58,10 @@ class CreateUserView:
         if self._frame is None:
             self._frame = ttk.Frame(master=self._root)
 
-            self._username_label = ttk.Label(
-                master=self._frame, text="Uusi käyttäjätunnus:")
-            self._username_label.grid(row=0, column=0, sticky='e')
-
+            self._username_label = ttk.Label(master=self._frame, text="Uusi käyttäjätunnus:")
+            self._username_label.grid(padx=5,pady=5)
             self._username_entry = ttk.Entry(master=self._frame)
-            self._username_entry.grid(row=0, column=1, sticky='w')
+            self._username_entry.grid(row=0, column=1, sticky=(constants.E, constants.W))
 
             self._password_label = ttk.Label(
                 master=self._frame, text="Uusi salasana:")
