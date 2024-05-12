@@ -22,4 +22,4 @@ Testaamatta jäivät vielä CollectingServic-luokka ja CollectingRepository-luok
 ## Järjestelmätestaus
 Sovelluksen järjestelmätestaus on suoritettu manuaalisesti.
 
-Sovellus on haettu ja sitä on testattu [käyttöohjeen](./kayttoohje.md)  kuvaamalla tavalla vain Linux-ympäristössä. Kaikki [vaatimusmäärittelyn](./vaatimusmaarittely.md) ☑  ilmoittamat toiminnot on testattu ja toimivat. 
+Sovellus on haettu ja sitä on testattu [README](./README.md)  kuvaamalla tavalla vain Linux-ympäristössä. Kaikki [vaatimusmäärittelyn](./vaatimusmaarittely.md) ☑  ilmoittamat toiminnot on testattu ja toimivat. 
