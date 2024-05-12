@@ -25,7 +25,7 @@ Mikäli oletkirautunut ulos, voit nyt valita suoran "Kirjautu" ja pääset käyt
 
 Valitse käyttäjänäkymästä 'Kirjaudu ulos' tai 'Lisää projekti'. Projektin tilanne on vielä kehityksessä, ja nappi ei toimi kunnolla.
 
-![Käyttäjänäkymä](kuvat/userview.png)
+![Käyttäjänäkymä](kuvat/userView.png)
 
 ## Puhelimen lisääminen kokoelmaan
 
