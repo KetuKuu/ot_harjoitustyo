@@ -38,7 +38,8 @@
 2.Lisätty yhteenveto.
 3.Koodin korjausta ja valokuvien lisääminen. Lisätty FileDialog-moduuli käyttäjälle tiedon lisäämiseen Addview.py-moduuliin. Valokuvien sijan tulisi näkyä ainoastaan kuvapolku."
 4. Kuvapolku muutettu kuvaksi mutta FileDialog ominaisuus poista listasta rivettäin hävisi. lisätty jokaiseen rivin delete-nappi.
-5.Rivejen poistaminen toimi väärin. Delete-nappi poistaa tiedokannasta, mutta listbox käyttäjänäkymässä kummittelee päivityksen jälkeen uuden listan lisääksi myös vanha lista, kunnes sivu päivitetään.
+5.Rivien poistaminen toimi väärin. Delete-nappi poistaa tiedokannasta, mutta listbox käyttäjänäkymässä kummittelee päivityksen jälkeen uuden listan lisääksi myös vanha lista, kunnes sivu päivitetään.
+6. Riven poistaminen toimii! Ohjelma testattu ja toimii. Koodi siivottu ja Docstringilla kommentoidu. Ohjelma on VALMIS, GitHub release julkaistu.
 
 
 
