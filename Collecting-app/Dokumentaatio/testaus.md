@@ -14,7 +14,7 @@ UserService-luokat testataan [TestUserService](https://github.com/KetuKuu/ot_har
 UserRepository-luokka on testattu [TestUserService](https://github.com/KetuKuu/ot_harjoitustyo/blob/master/Collecting-app/src/tests/repositories/user_repository_test.py) -testiluokalla. Sitä varten on luodu tietokantayhteys testitietokantaan.
 
 ### Testauskattavuus
-Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen haarautumakattavuus on 50 %
+Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen haarautumakattavuus on 52 %
 
 ![Testikattavuus](./kuvat/Testikattavuus.png)
 Testaamatta jäivät vielä CollectingServic-luokka ja CollectingRepository-luokka.
