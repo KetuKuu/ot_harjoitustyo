@@ -25,5 +25,5 @@
 | 2024-05-08 |8 tuntia|Kuvan käsittely siirretty kaikkiin project_view.py-moduuliin. Valokuva näkyy, mutta aikaisemman rivin poistaminen ei toimi enää. Lisätty napit jokaiseen käyttäjän lisäämään riviin. Otsikot puuttuvat myös.| 
 | 2024-05-09 |5 tuntia| Kaikki Kuvan käsittely jätetään project_view.py-moduuliin. Otsikot lisätty, mutta poistaminen toimi nyt väärin. yhteenveto sijoitettu user_view näkyymään.| 
 | 2024-05-10 |8 tuntia|Testien parannukset. Poista nappi toimii jatkuvasti väärin. Tiedokannatsa poistetaan, mutta käyttäjä näkymässä poistettu rivi pysyy, kunnes tapahtu sivun vaihto. Pajassa ei osattu auttaa, miten pystyn korjaamaan tilanteen, jotta Listbox poistaisi edellisen näkymän ennen uuden päivittämistä.| 
-| 2024-05-11 |10 tuntia|Poista nappi toimii. Puhelimen lisääminen ilman valokuvaa toimii. Tiedokannat testattu, toimii. Koodi siivottu. Dokumentaatio kunnossa.|
-| yht   | 139   | | 
+| 2024-05-11 |11 tuntia|Poista nappi toimii. Puhelimen lisääminen ilman valokuvaa toimii. Tiedokannat testattu, toimii. Koodi siivottu. Graafisen käyttöliittymän koodia korjattu. koodissa jatkuvasti paljon toisteisuuttaa. Dokumentaatio kunnossa. Ohjelma toimmii halutulla tavalla.|
+| yht   | 140   | | 
